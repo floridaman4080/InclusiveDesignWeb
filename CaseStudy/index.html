@@ -34,13 +34,10 @@
         }
 
         .case-study-page .case-study-project {
-            margin: -10px 0 0;
-            font-family: 'Outfit', sans-serif;
-            font-size: 15px;
-            line-height: 1.4;
-            font-weight: 600;
-            letter-spacing: .08em;
-            text-transform: uppercase;
+            margin: 0;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.58;
         }
 
         .case-study-page .slide-dark .case-study-project {
@@ -53,7 +50,10 @@
 
         .case-study-page .relation-slide .case-study-project {
             max-width: 700px;
-            margin: -18px 0 10px;
+            width: 100%;
+            margin: 0 0 26px;
+            justify-self: start;
+            text-align: left;
         }
 
         .case-study-lightbox[hidden] {
@@ -240,7 +240,6 @@
             .case-study-page .finding-copy .heading-lg {
                 max-width: 100%;
                 font-size: clamp(30px, 9.2vw, 46px);
-                letter-spacing: 1.8px;
             }
 
             .case-study-page .finding-images {
@@ -291,6 +290,7 @@
 
             .case-study-page .relation-slide>.section-badge,
             .case-study-page .relation-slide>.heading-lg,
+            .case-study-page .relation-slide>.case-study-project,
             .case-study-page .relation-text,
             .case-study-page .relation-images {
                 width: min(100%, 560px);
@@ -308,6 +308,15 @@
 
             .case-study-page .relation-text {
                 max-width: 560px;
+            }
+
+            .case-study-page .case-study-project,
+            .case-study-page .relation-slide .case-study-project {
+                font-size: clamp(14px, 3.8vw, 18px);
+                line-height: 1.58;
+                margin-top: 0;
+                margin-bottom: 0;
+                text-align: left;
             }
 
             .case-study-page .relation-images {
