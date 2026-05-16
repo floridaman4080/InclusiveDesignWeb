@@ -47,6 +47,14 @@
             padding: clamp(18px, 4vw, 56px);
             background: rgba(25, 32, 24, .88);
             backdrop-filter: blur(12px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .28s var(--ease);
+        }
+
+        .case-study-lightbox.is-open {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .case-study-lightbox img {
@@ -56,21 +64,46 @@
             border-radius: 14px;
             background: #fff;
             box-shadow: 0 24px 90px rgba(0, 0, 0, .46);
+            opacity: 0;
+            transform: translateY(24px) scale(.96);
+            transition: opacity .28s var(--ease), transform .34s var(--ease);
         }
 
-        .case-study-lightbox button {
+        .case-study-lightbox.is-open img {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .case-study-lightbox #lightboxClose {
             position: absolute;
             top: max(18px, env(safe-area-inset-top));
             right: max(18px, env(safe-area-inset-right));
             width: 48px;
             height: 48px;
+            min-width: 48px;
+            min-height: 48px;
+            box-sizing: border-box;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            padding: 0;
             border: 1px solid rgba(255, 255, 255, .28);
-            border-radius: 50%;
+            border-radius: 999px;
             background: rgba(0, 0, 0, .34);
             color: #fff;
             font-size: 30px;
             line-height: 1;
+            appearance: none;
+            -webkit-appearance: none;
             backdrop-filter: blur(10px);
+            transform: translateY(8px);
+            opacity: 0;
+            transition: opacity .24s var(--ease), transform .3s var(--ease);
+        }
+
+        .case-study-lightbox.is-open #lightboxClose {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 900px) {
@@ -245,6 +278,19 @@
                 background: rgba(255, 255, 255, .72);
             }
 
+            .case-study-page .finding-slide.reverse .finding-images .img-frame.contain {
+                height: auto;
+                aspect-ratio: 4 / 3;
+                background: #fff;
+            }
+
+            .case-study-page .finding-slide.reverse .finding-images .img-frame.contain img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                background: #fff;
+            }
+
             .case-study-page .relation-slide {
                 flex-direction: column;
                 align-items: center;
@@ -326,7 +372,7 @@
                 left: 50%;
                 right: auto;
                 bottom: max(14px, env(safe-area-inset-bottom));
-                transform: translateX(-50%);
+                transform: translate(-50%, 24px);
                 width: min(calc(100vw - 32px), 340px);
                 display: grid;
                 grid-template-columns: 48px minmax(120px, 1fr) 48px;
@@ -335,7 +381,15 @@
                 row-gap: 5px;
                 align-items: center;
                 justify-items: center;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity .28s var(--ease), transform .32s var(--ease);
+            }
+
+            .case-study-page.controls-revealed .controls {
                 opacity: 1;
+                pointer-events: auto;
+                transform: translate(-50%, 0);
             }
 
             .case-study-page .controls button {
@@ -486,6 +540,7 @@
             const sectionNav = document.getElementById('sectionNav');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
+            const controls = document.querySelector('.controls');
             const lightbox = document.getElementById('imageLightbox');
             const lightboxImage = document.getElementById('lightboxImage');
             const lightboxClose = document.getElementById('lightboxClose');
@@ -494,6 +549,8 @@
             let touchStartX = 0;
             let touchStartY = 0;
             let lastSwipeAt = 0;
+            let lightboxCloseTimer = 0;
+            let controlsTimer = 0;
 
             function scaleStage() {
                 if (mobileQuery.matches) {
@@ -518,21 +575,39 @@
                 scaleStage();
             }
 
+            function revealControls() {
+                document.body.classList.add('controls-revealed');
+                window.clearTimeout(controlsTimer);
+                controlsTimer = window.setTimeout(() => {
+                    document.body.classList.remove('controls-revealed');
+                }, 3200);
+            }
+
             function openLightbox(frame) {
                 if (Date.now() - lastSwipeAt < 260) return;
                 const img = frame.querySelector('img');
                 if (!img) return;
+                window.clearTimeout(lightboxCloseTimer);
                 lightboxImage.src = img.currentSrc || img.src;
                 lightboxImage.alt = img.alt || '';
                 lightbox.hidden = false;
                 document.body.classList.add('lightbox-open');
+                window.requestAnimationFrame(() => {
+                    lightbox.classList.add('is-open');
+                });
                 lightboxClose.focus();
             }
 
             function closeLightbox() {
-                lightbox.hidden = true;
-                lightboxImage.removeAttribute('src');
+                if (lightbox.hidden) return;
+                lightbox.classList.remove('is-open');
                 document.body.classList.remove('lightbox-open');
+                window.clearTimeout(lightboxCloseTimer);
+                lightboxCloseTimer = window.setTimeout(() => {
+                    if (lightbox.classList.contains('is-open')) return;
+                    lightbox.hidden = true;
+                    lightboxImage.removeAttribute('src');
+                }, 360);
             }
 
             slides.forEach((slide, index) => {
@@ -553,12 +628,15 @@
                 frame.addEventListener('keydown', e => {
                     if (e.key !== 'Enter' && e.key !== ' ') return;
                     e.preventDefault();
+                    e.stopPropagation();
                     openLightbox(frame);
                 });
             });
 
             prevBtn.addEventListener('click', () => showSlide(current - 1));
             nextBtn.addEventListener('click', () => showSlide(current + 1));
+            controls.addEventListener('pointerdown', revealControls);
+            controls.addEventListener('click', revealControls);
             lightboxClose.addEventListener('click', closeLightbox);
             lightbox.addEventListener('click', e => {
                 if (e.target === lightbox) closeLightbox();
@@ -598,6 +676,10 @@
                 if (!e.changedTouches.length) return;
                 const dx = e.changedTouches[0].clientX - touchStartX;
                 const dy = e.changedTouches[0].clientY - touchStartY;
+                if (dy < -54 && Math.abs(dy) > Math.abs(dx) * 1.15) {
+                    revealControls();
+                    return;
+                }
                 if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
                 lastSwipeAt = Date.now();
                 showSlide(current + (dx < 0 ? 1 : -1));
