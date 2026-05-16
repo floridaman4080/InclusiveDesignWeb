@@ -24,6 +24,55 @@
             opacity: 1;
         }
 
+        .case-study-page .img-frame {
+            cursor: zoom-in;
+        }
+
+        .case-study-page .img-frame:focus-visible {
+            outline: 3px solid var(--gold-400);
+            outline-offset: 6px;
+        }
+
+        .case-study-lightbox[hidden] {
+            display: none;
+        }
+
+        .case-study-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 12000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(18px, 4vw, 56px);
+            background: rgba(25, 32, 24, .88);
+            backdrop-filter: blur(12px);
+        }
+
+        .case-study-lightbox img {
+            max-width: min(96vw, 1440px);
+            max-height: 86vh;
+            object-fit: contain;
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 24px 90px rgba(0, 0, 0, .46);
+        }
+
+        .case-study-lightbox button {
+            position: absolute;
+            top: max(18px, env(safe-area-inset-top));
+            right: max(18px, env(safe-area-inset-right));
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(255, 255, 255, .28);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .34);
+            color: #fff;
+            font-size: 30px;
+            line-height: 1;
+            backdrop-filter: blur(10px);
+        }
+
         @media (max-width: 900px) {
 
             html,
@@ -60,6 +109,14 @@
 
             .case-study-page .slide.active {
                 display: flex;
+            }
+
+            .case-study-page .slide-dark {
+                background: var(--sage-950);
+            }
+
+            .case-study-page .slide-light {
+                background: var(--cream);
             }
 
             .case-study-page .section-slide {
@@ -110,17 +167,18 @@
             .case-study-page .finding-slide,
             .case-study-page .finding-slide.reverse {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: center;
                 justify-content: flex-start;
                 gap: 22px;
-                padding: 28px 18px 104px;
+                padding: 28px 18px 118px;
             }
 
             .case-study-page .finding-copy {
                 order: 1;
-                width: 100%;
+                width: min(100%, 560px);
                 flex: none;
                 gap: 16px;
+                margin: 0 auto;
             }
 
             .case-study-page .finding-copy .heading-lg {
@@ -165,51 +223,148 @@
 
             .case-study-page .finding-images {
                 order: 2;
-                width: 100%;
+                width: min(100%, 560px);
                 height: auto;
                 flex: none;
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: none;
                 gap: 14px;
+                justify-items: center;
+                margin: 0 auto;
             }
 
             .case-study-page .finding-images .img-frame {
-                width: 100%;
-                height: clamp(210px, 54vw, 340px);
+                width: min(100%, 520px);
+                height: clamp(220px, 56vw, 350px);
                 border-radius: 18px;
+                margin: 0 auto;
             }
 
             .case-study-page .finding-images .img-frame.contain {
                 background: rgba(255, 255, 255, .72);
             }
 
-            .case-study-page .controls {
-                left: 16px;
-                right: 16px;
-                bottom: max(14px, env(safe-area-inset-bottom));
-                transform: none;
-                width: auto;
+            .case-study-page .relation-slide {
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 18px;
+                padding: 28px 18px 118px;
+                text-align: left;
+            }
+
+            .case-study-page .relation-slide>.section-badge,
+            .case-study-page .relation-slide>.heading-lg,
+            .case-study-page .relation-center,
+            .case-study-page .relation-text,
+            .case-study-page .relation-images {
+                width: min(100%, 560px);
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .case-study-page .relation-slide .heading-lg {
+                max-width: 560px;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: clamp(30px, 9.2vw, 46px);
+                line-height: 1.08;
+            }
+
+            .case-study-page .relation-center {
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
-                gap: 10px;
+                gap: 12px;
+                margin-top: 2px;
+                margin-bottom: 0;
+            }
+
+            .case-study-page .relation-circle {
+                width: min(68vw, 220px);
+                height: auto;
+                aspect-ratio: 1;
+                padding: 24px;
+            }
+
+            .case-study-page .relation-core {
+                width: min(42vw, 132px);
+                height: auto;
+                aspect-ratio: 1;
+                padding: 16px;
+            }
+
+            .case-study-page .relation-text {
+                max-width: 560px;
+            }
+
+            .case-study-page .relation-images {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: none;
+                gap: 14px;
+                height: auto;
+                min-height: 0;
+                justify-items: center;
+            }
+
+            .case-study-page .relation-images .img-frame {
+                width: min(100%, 520px);
+                height: clamp(220px, 56vw, 350px);
+                border-radius: 18px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, .72);
+            }
+
+            .case-study-page .relation-images .img-frame.contain img {
+                object-fit: contain;
+                background: #fff;
+            }
+
+            .case-study-page .controls {
+                left: 50%;
+                right: auto;
+                bottom: max(14px, env(safe-area-inset-bottom));
+                transform: translateX(-50%);
+                width: min(calc(100vw - 32px), 340px);
+                display: grid;
+                grid-template-columns: 48px minmax(120px, 1fr) 48px;
+                grid-template-rows: 48px auto;
+                column-gap: 12px;
+                row-gap: 5px;
+                align-items: center;
+                justify-items: center;
                 opacity: 1;
             }
 
             .case-study-page .controls button {
-                width: 42px;
-                height: 42px;
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                min-height: 48px;
                 flex: 0 0 auto;
+                display: grid;
+                place-items: center;
+                padding: 0;
                 background: rgba(0, 0, 0, .42);
+                font-size: 34px;
+                line-height: 1;
             }
 
             .case-study-page .progress-bar {
-                width: min(42vw, 180px);
+                width: 100%;
+                grid-column: 2;
+                grid-row: 1;
             }
 
             .case-study-page #slideCounter {
-                min-width: 44px;
+                grid-column: 1 / -1;
+                grid-row: 2;
+                min-width: 0;
                 color: rgba(255, 255, 255, .76);
                 font-size: 12px;
+                text-align: center;
             }
 
             .case-study-page .section-nav {
@@ -239,20 +394,7 @@
     <nav class="section-nav" id="sectionNav" aria-label="Slide navigation"></nav>
 
     <main class="stage" id="stage">
-        <section class="slide slide-light active section-slide" data-title="Results">
-            <div class="section-layout">
-                <div class="section-mark anim-1 editable-text">04</div>
-                <div class="section-copy">
-                    <div class="anim-1 section-badge section-kicker"><span class="dot"></span>SECTION 04</div>
-                    <h2 class="heading-xl anim-2 editable-text">Results</h2>
-                    <div class="section-line anim-3"></div>
-                    <p class="section-subtitle anim-4 editable-text">How visual and tactile cues support confident
-                        movement.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="slide slide-dark finding-slide" data-title="Visual Cues">
+        <section class="slide slide-dark active finding-slide" data-title="Visual Cues">
             <div class="finding-copy">
                 <div class="anim-1 section-badge gold"><span class="dot"></span>4.1 Visual Cues</div>
                 <h2 class="heading-lg anim-2 editable-text">Visual cues: clear, simple, and not used alone</h2>
@@ -296,6 +438,29 @@
                 </div>
             </div>
         </section>
+
+        <section class="slide slide-dark relation-slide" data-title="Vision and Touch" data-relation-version="2">
+            <div class="anim-1 section-badge gold"><span class="dot"></span>4.3 Vision and Touch</div>
+            <h2 class="heading-lg anim-2 editable-text">The most effective design occurs when visual and tactile
+                information overlap</h2>
+            <div class="relation-center anim-3">
+                <div class="relation-circle"><span class="editable-text">Visual</span>
+                    <p class="editable-text">Contrast, lighting, signs, edges</p>
+                </div>
+                <div class="relation-core editable-text">Mutual Confirmation</div>
+                <div class="relation-circle"><span class="editable-text">Tactile</span>
+                    <p class="editable-text">Cane feedback, surface texture, route continuity</p>
+                </div>
+            </div>
+            <p class="body-md muted-light relation-text anim-4 editable-text">While visual cues accelerate navigation
+                for low-vision users, tactile feedback ensures routes are confirmable for blind individuals.</p>
+            <div class="relation-images anim-5">
+                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_19_image_24.png"
+                        alt="Enabling Village integrated visual path"></figure>
+                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_19_image_25.png"
+                        alt="Synchronized tactile floor indicators"></figure>
+            </div>
+        </section>
     </main>
 
     <div class="controls" aria-label="Slide controls">
@@ -307,6 +472,11 @@
         <span id="slideCounter">1 / 3</span>
     </div>
 
+    <div class="case-study-lightbox" id="imageLightbox" hidden>
+        <button type="button" id="lightboxClose" aria-label="Close image preview">×</button>
+        <img id="lightboxImage" alt="">
+    </div>
+
     <script>
         (function () {
             const stage = document.getElementById('stage');
@@ -316,10 +486,14 @@
             const sectionNav = document.getElementById('sectionNav');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxClose = document.getElementById('lightboxClose');
             const mobileQuery = window.matchMedia('(max-width: 900px)');
             let current = 0;
             let touchStartX = 0;
             let touchStartY = 0;
+            let lastSwipeAt = 0;
 
             function scaleStage() {
                 if (mobileQuery.matches) {
@@ -344,6 +518,23 @@
                 scaleStage();
             }
 
+            function openLightbox(frame) {
+                if (Date.now() - lastSwipeAt < 260) return;
+                const img = frame.querySelector('img');
+                if (!img) return;
+                lightboxImage.src = img.currentSrc || img.src;
+                lightboxImage.alt = img.alt || '';
+                lightbox.hidden = false;
+                document.body.classList.add('lightbox-open');
+                lightboxClose.focus();
+            }
+
+            function closeLightbox() {
+                lightbox.hidden = true;
+                lightboxImage.removeAttribute('src');
+                document.body.classList.remove('lightbox-open');
+            }
+
             slides.forEach((slide, index) => {
                 const dot = document.createElement('button');
                 dot.type = 'button';
@@ -354,8 +545,24 @@
                 sectionNav.appendChild(dot);
             });
 
+            document.querySelectorAll('.img-frame').forEach(frame => {
+                frame.tabIndex = 0;
+                frame.setAttribute('role', 'button');
+                frame.setAttribute('aria-label', 'Open image preview');
+                frame.addEventListener('click', () => openLightbox(frame));
+                frame.addEventListener('keydown', e => {
+                    if (e.key !== 'Enter' && e.key !== ' ') return;
+                    e.preventDefault();
+                    openLightbox(frame);
+                });
+            });
+
             prevBtn.addEventListener('click', () => showSlide(current - 1));
             nextBtn.addEventListener('click', () => showSlide(current + 1));
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', e => {
+                if (e.target === lightbox) closeLightbox();
+            });
             window.addEventListener('resize', scaleStage);
             if (typeof mobileQuery.addEventListener === 'function') {
                 mobileQuery.addEventListener('change', scaleStage);
@@ -364,6 +571,11 @@
             }
 
             document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && !lightbox.hidden) {
+                    closeLightbox();
+                    return;
+                }
+                if (!lightbox.hidden) return;
                 if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
                     e.preventDefault();
                     showSlide(current + 1);
@@ -387,6 +599,7 @@
                 const dx = e.changedTouches[0].clientX - touchStartX;
                 const dy = e.changedTouches[0].clientY - touchStartY;
                 if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+                lastSwipeAt = Date.now();
                 showSlide(current + (dx < 0 ? 1 : -1));
             }, { passive: true });
 
