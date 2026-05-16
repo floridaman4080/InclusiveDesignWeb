@@ -33,6 +33,29 @@
             outline-offset: 6px;
         }
 
+        .case-study-page .case-study-project {
+            margin: -10px 0 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            line-height: 1.4;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .case-study-page .slide-dark .case-study-project {
+            color: rgba(222, 197, 129, .88);
+        }
+
+        .case-study-page .slide-light .case-study-project {
+            color: var(--sage-600);
+        }
+
+        .case-study-page .relation-slide .case-study-project {
+            max-width: 700px;
+            margin: -18px 0 10px;
+        }
+
         .case-study-lightbox[hidden] {
             display: none;
         }
@@ -217,41 +240,7 @@
             .case-study-page .finding-copy .heading-lg {
                 max-width: 100%;
                 font-size: clamp(30px, 9.2vw, 46px);
-                line-height: 1.08;
-            }
-
-            .case-study-page .body-md {
-                font-size: clamp(16px, 4.35vw, 20px);
-                line-height: 1.55;
-            }
-
-            .case-study-page .section-badge {
-                font-size: 11px;
-                line-height: 1.25;
                 letter-spacing: 1.8px;
-            }
-
-            .case-study-page .quote-block {
-                padding: 18px 18px 18px 20px;
-                font-size: clamp(17px, 4.8vw, 22px);
-                line-height: 1.38;
-            }
-
-            .case-study-page .finding-card,
-            .case-study-page .finding-card-dark {
-                padding: 18px;
-                border-radius: 16px;
-            }
-
-            .case-study-page .finding-card p,
-            .case-study-page .finding-card-dark p {
-                font-size: clamp(15px, 4.1vw, 18px);
-                line-height: 1.5;
-            }
-
-            .case-study-page .small-label {
-                font-size: 11px !important;
-                line-height: 1.2 !important;
             }
 
             .case-study-page .finding-images {
@@ -302,7 +291,6 @@
 
             .case-study-page .relation-slide>.section-badge,
             .case-study-page .relation-slide>.heading-lg,
-            .case-study-page .relation-center,
             .case-study-page .relation-text,
             .case-study-page .relation-images {
                 width: min(100%, 560px);
@@ -316,29 +304,6 @@
                 margin-bottom: 0;
                 font-size: clamp(30px, 9.2vw, 46px);
                 line-height: 1.08;
-            }
-
-            .case-study-page .relation-center {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-                margin-top: 2px;
-                margin-bottom: 0;
-            }
-
-            .case-study-page .relation-circle {
-                width: min(68vw, 220px);
-                height: auto;
-                aspect-ratio: 1;
-                padding: 24px;
-            }
-
-            .case-study-page .relation-core {
-                width: min(42vw, 132px);
-                height: auto;
-                aspect-ratio: 1;
-                padding: 16px;
             }
 
             .case-study-page .relation-text {
@@ -451,16 +416,13 @@
         <section class="slide slide-dark active finding-slide" data-title="Visual Cues">
             <div class="finding-copy">
                 <div class="anim-1 section-badge gold"><span class="dot"></span>4.1 Visual Cues</div>
-                <h2 class="heading-lg anim-2 editable-text">Visual cues: clear, simple, and not used alone</h2>
-                <p class="body-md muted-light anim-3 editable-text">Visual information was common — signs, maps, arrows,
-                    labels, warning colors.</p>
-                <blockquote class="quote-block anim-4 editable-text">“Strong contrast at the edge of steps helps friends
-                    with low vision move faster, while weak contrast makes them stop and ask for help.”</blockquote>
-                <div class="finding-card-dark anim-5">
-                    <p class="small-label gold-label editable-text">Key Insight</p>
-                    <p class="editable-text">For low-vision users, high contrast, large signs, clear edges, stable
-                        lighting, and reduced glare can make routes easier to notice.</p>
-                </div>
+                <h2 class="heading-lg anim-2 editable-text">Visual guidance on the Elizabeth Line:</h2>
+                <p class="case-study-project anim-3 editable-text">The Elizabeth Line | London, United Kingdom</p>
+                <p class="body-md muted-light anim-4 editable-text">The Elizabeth Line offers a useful visual case. Its
+                    station lighting uses cooler light in movement areas and warmer light in places where passengers
+                    pause
+                    and choose a route. This difference helps make space more readable without adding too many signs.
+                </p>
             </div>
             <div class="finding-images anim-scale">
                 <figure class="img-frame"><img src="../sources/ppt-content_files/slide_17_image_20.jpg"
@@ -479,35 +441,25 @@
             </div>
             <div class="finding-copy">
                 <div class="anim-1 section-badge sage"><span class="dot"></span>4.2 Tactile Cues</div>
-                <h2 class="heading-lg anim-2 editable-text">Tactile cues: continuous, connected, unblocked</h2>
-                <p class="body-md anim-3 editable-text">Touch was the most direct source of information. The white cane
-                    detected information before the body moved forward.</p>
-                <blockquote class="quote-block sage-quote anim-4 editable-text">“When the tactile line stops in the
-                    middle of the path, I feel lost because I do not know if I made a mistake or the design did.”
-                </blockquote>
-                <div class="finding-card anim-5">
-                    <p class="small-label editable-text">Key Insight</p>
-                    <p class="editable-text">Tactile design should be a route system, not an isolated strip. A blocked
-                        tactile route creates more risk than none.</p>
-                </div>
+                <h2 class="heading-lg anim-2 editable-text">Hazelwood School’s tactile wall</h2>
+                <p class="case-study-project anim-3 editable-text">Hazelwood School | Glasgow, United Kingdom</p>
+                <p class="body-md anim-4 editable-text">Hazelwood School was designed for children and young people with
+                    dual sensory impairments. Its cork-clad sensory wall and trail rail provide steady touch feedback
+                    along the route, helping students confirm their location and move with more freedom</p>
             </div>
         </section>
 
         <section class="slide slide-dark relation-slide" data-title="Vision and Touch" data-relation-version="2">
             <div class="anim-1 section-badge gold"><span class="dot"></span>4.3 Vision and Touch</div>
-            <h2 class="heading-lg anim-2 editable-text">The most effective design occurs when visual and tactile
-                information overlap</h2>
-            <div class="relation-center anim-3">
-                <div class="relation-circle"><span class="editable-text">Visual</span>
-                    <p class="editable-text">Contrast, lighting, signs, edges</p>
-                </div>
-                <div class="relation-core editable-text">Mutual Confirmation</div>
-                <div class="relation-circle"><span class="editable-text">Tactile</span>
-                    <p class="editable-text">Cane feedback, surface texture, route continuity</p>
-                </div>
-            </div>
-            <p class="body-md muted-light relation-text anim-4 editable-text">While visual cues accelerate navigation
-                for low-vision users, tactile feedback ensures routes are confirmable for blind individuals.</p>
+            <h2 class="heading-lg anim-2 editable-text">The Relationship Between Vision and Touch in The Enabling
+                Village</h2>
+            <p class="case-study-project anim-3 editable-text">The Enabling Village | Singapore</p>
+            <p class="body-md muted-light relation-text anim-4 editable-text">The Enabling Village in Singapore
+                illustrates this synergy as a model for universal design. Its continuous pathway system, the "Enable
+                Lane," synthesizes visual and tactile cues. For low-vision visitors, high-contrast block colors
+                differentiate building zones and walking paths. This visual clarity is simultaneously reinforced by
+                varying tactile intensities: the darker, central areas of the path provide stronger tactile feedback,
+                while the lighter, peripheral areas offer weaker tactile sensations.</p>
             <div class="relation-images anim-5">
                 <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_19_image_24.png"
                         alt="Enabling Village integrated visual path"></figure>
