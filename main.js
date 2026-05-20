@@ -133,8 +133,8 @@
         updateSectionNav();
         if ((previous === 0) !== (current === 0)) scaleStage();
         document.body.style.background = slides[current].classList.contains('slide-dark') ? 'var(--sage-950)' : 'var(--cream)';
-        if (current === 3) animateStats();
-        if (previous === 3 && current !== 3) resetStats();
+        if (current === 2) animateStats();
+        if (previous === 2 && current !== 2) resetStats();
         clearSelection();
     }
 
@@ -362,12 +362,12 @@
 
     function validateSlideSnapshot(snapshot, index) {
         const html = snapshot.html || '';
-        if (index === 3 && !html.includes('id="barChart"')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
-        if (index === 4 && (html.includes('Fig. 1') || !html.includes('user-pyramid-svg'))) return cloneSlideSnapshot(originalSlideSnapshots[index]);
-        if (index === 11 && !html.includes('data-framework-version="7"')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
-        if (index === 12 && !html.includes('empathy-map-svg')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
-        if (index === 13 && html.includes('contain profile-image')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
-        if (index === 17 && !html.includes('relation-images')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 2 && !html.includes('id="barChart"')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 3 && (html.includes('Fig. 1') || !html.includes('user-pyramid-svg'))) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 8 && !html.includes('data-framework-version="7"')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 9 && !html.includes('empathy-map-svg')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 10 && html.includes('contain profile-image')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 13 && !html.includes('relation-images')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
         return snapshot;
     }
 
