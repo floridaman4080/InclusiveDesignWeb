@@ -127,12 +127,13 @@
         const previous = current;
         current = Math.max(0, Math.min(index, slides.length - 1));
         slides.forEach((slide, idx) => slide.classList.toggle('active', idx === current));
+        document.body.classList.toggle('controls-on-light', slides[current].classList.contains('slide-light'));
         try { writeStorage(STORAGE_KEYS.slide, String(current)); } catch (e) { }
         progressFill.style.width = `${((current + 1) / slides.length) * 100}%`;
         slideCounter.textContent = `${current + 1} / ${slides.length}`;
         updateSectionNav();
         if ((previous === 0) !== (current === 0)) scaleStage();
-        document.body.style.background = slides[current].classList.contains('slide-dark') ? 'var(--sage-950)' : 'var(--cream)';
+        document.body.style.background = getComputedStyle(slides[current]).backgroundColor;
         if (current === 2) animateStats();
         if (previous === 2 && current !== 2) resetStats();
         clearSelection();
@@ -365,9 +366,13 @@
         if (index === 2 && !html.includes('id="barChart"')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
         if (index === 3 && (html.includes('Fig. 1') || !html.includes('user-pyramid-svg'))) return cloneSlideSnapshot(originalSlideSnapshots[index]);
         if (index === 8 && !html.includes('data-framework-version="7"')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
-        if (index === 9 && !html.includes('empathy-map-svg')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
-        if (index === 10 && html.includes('contain profile-image')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 9 && !html.includes('images/图一.png')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 10 && (!html.includes('images/图八.png') || html.includes('img-frame contain profile-image'))) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 11 && (!html.includes('images/图二.png') || !html.includes('images/图三.png') || !html.includes('finding-slide-expanded') || (html.match(/side-white-pad/g) || []).length < 2)) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 12 && (!html.includes('images/图四.png') || !html.includes('images/图五.png') || !html.includes('finding-slide-expanded') || (html.match(/side-white-pad/g) || []).length < 2)) return cloneSlideSnapshot(originalSlideSnapshots[index]);
         if (index === 13 && !html.includes('relation-images')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 15 && (!html.includes('images/图六.png') || !html.includes('side-white-pad') || !html.includes('conclusion-insights') || html.includes('M31 17l2.1'))) return cloneSlideSnapshot(originalSlideSnapshots[index]);
+        if (index === 16 && html.includes('images/图七.png')) return cloneSlideSnapshot(originalSlideSnapshots[index]);
         return snapshot;
     }
 

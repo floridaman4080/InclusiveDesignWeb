@@ -240,6 +240,20 @@ button {
     background: #fff;
 }
 
+.img-frame.white-contain {
+    background: #fff;
+}
+
+.img-frame.white-contain img {
+    object-fit: contain;
+    background: #fff;
+}
+
+.img-frame.side-white-pad {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
 .finding-card,
 .finding-card-dark,
 .chart-card,
@@ -948,6 +962,25 @@ button {
     grid-template-rows: 1fr 1fr;
 }
 
+.finding-slide-expanded {
+    padding: 60px 72px;
+    gap: 34px;
+}
+
+.finding-slide-expanded .finding-copy {
+    flex: .8;
+}
+
+.finding-slide-expanded .finding-images {
+    flex: 1.28;
+    height: 900px;
+    gap: 12px;
+}
+
+.finding-slide-expanded .img-frame.side-white-pad {
+    padding: 18px 24px;
+}
+
 .relation-slide {
     grid-template-columns: 760px minmax(0, 1fr);
     grid-template-rows: auto auto auto 1fr;
@@ -1127,6 +1160,52 @@ button {
     max-width: 820px;
 }
 
+.conclusion-insights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 820px;
+    margin-top: 58px;
+}
+
+.conclusion-insight {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding-right: 10px;
+    border-right: 1px solid rgba(200, 170, 90, .28);
+}
+
+.conclusion-insight:last-child {
+    border-right: 0;
+}
+
+.conclusion-insight svg {
+    width: 54px;
+    height: 54px;
+    color: var(--gold-300);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.conclusion-insight h3 {
+    margin: 0 0 6px;
+    color: var(--gold-300);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.conclusion-insight p {
+    margin: 0;
+    color: var(--sage-200);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
 .conclusion-image {
     flex: .9;
     height: 760px;
@@ -1177,7 +1256,7 @@ button {
     display: flex;
     align-items: center;
     gap: 14px;
-    opacity: .08;
+    opacity: 0;
     transition: opacity .25s;
 }
 
@@ -1189,6 +1268,7 @@ body.edit-mode .controls {
 .controls button {
     width: 44px;
     height: 44px;
+    padding: 0;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, .12);
     color: rgba(255, 255, 255, .86);
@@ -1196,6 +1276,23 @@ body.edit-mode .controls {
     backdrop-filter: blur(10px);
     font-size: 30px;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.controls-on-light .controls button {
+    border-color: rgba(26, 31, 26, .18);
+    color: rgba(26, 31, 26, .84);
+    background: rgba(255, 255, 255, .54);
+}
+
+body.controls-on-light .progress-bar {
+    background: rgba(26, 31, 26, .16);
+}
+
+body.controls-on-light #slideCounter {
+    color: rgba(26, 31, 26, .66);
 }
 
 .progress-bar {
@@ -1229,7 +1326,7 @@ body.edit-mode .controls {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    opacity: .08;
+    opacity: 0;
     transition: opacity .25s;
 }
 
