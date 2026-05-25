@@ -60,6 +60,18 @@
             font-size: 20px;
         }
 
+        .case-study-page .case-study-cover {
+            padding-left: 248px;
+        }
+
+        .case-study-page .case-study-cover .section-layout {
+            transform: translateY(-8px);
+        }
+
+        .case-study-page .case-study-cover .section-copy {
+            width: 680px;
+        }
+
         .case-study-lightbox[hidden] {
             display: none;
         }
@@ -222,6 +234,30 @@
                 max-width: 100%;
                 font-size: clamp(18px, 5vw, 22px);
                 line-height: 1.5;
+            }
+
+            .case-study-page .case-study-cover {
+                justify-content: center;
+                align-items: flex-start;
+                padding: 40px 24px 112px;
+            }
+
+            .case-study-page .case-study-cover .section-layout {
+                width: 100%;
+                max-width: 560px;
+                transform: none;
+            }
+
+            .case-study-page .case-study-cover .section-copy {
+                width: 100%;
+            }
+
+            .case-study-page .case-study-cover .heading-xl {
+                font-size: clamp(44px, 14vw, 64px);
+            }
+
+            .case-study-page .case-study-cover .section-subtitle {
+                font-size: clamp(16px, 4.6vw, 21px);
             }
 
             .case-study-page .finding-slide,
@@ -427,9 +463,20 @@
     <nav class="section-nav" id="sectionNav" aria-label="Slide navigation"></nav>
 
     <main class="stage" id="stage">
-        <section class="slide slide-dark active finding-slide" data-title="Visual Cues">
+        <section class="slide slide-light active section-slide case-study-cover" data-title="Case Study">
+            <div class="section-layout">
+                <div class="section-copy">
+                    <h1 class="heading-xl anim-1 editable-text">Case Study</h1>
+                    <div class="section-line anim-2"></div>
+                    <p class="section-subtitle anim-3 editable-text">How visual and tactile cues support confident
+                        movement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide slide-dark finding-slide" data-title="Visual Cues">
             <div class="finding-copy">
-                <div class="anim-1 section-badge gold"><span class="dot"></span>4.1 Visual Cues</div>
+                <div class="anim-1 section-badge gold"><span class="dot"></span>Visual Cues</div>
                 <h2 class="heading-lg anim-2 editable-text">Visual guidance on the Elizabeth Line:</h2>
                 <p class="case-study-project anim-3 editable-text">The Elizabeth Line | London, United Kingdom</p>
                 <p class="body-md muted-light anim-4 editable-text">The Elizabeth Line offers a useful visual case. Its
@@ -454,7 +501,7 @@
                         alt="Hazelwood School route diagram"></figure>
             </div>
             <div class="finding-copy">
-                <div class="anim-1 section-badge sage"><span class="dot"></span>4.2 Tactile Cues</div>
+                <div class="anim-1 section-badge sage"><span class="dot"></span>Tactile Cues</div>
                 <h2 class="heading-lg anim-2 editable-text">Hazelwood School’s tactile wall</h2>
                 <p class="case-study-project anim-3 editable-text">Hazelwood School | Glasgow, United Kingdom</p>
                 <p class="body-md anim-4 editable-text">Hazelwood School was designed for children and young people with
@@ -464,7 +511,7 @@
         </section>
 
         <section class="slide slide-dark relation-slide" data-title="Vision and Touch" data-relation-version="2">
-            <div class="anim-1 section-badge gold"><span class="dot"></span>4.3 Vision and Touch</div>
+            <div class="anim-1 section-badge gold"><span class="dot"></span>Vision and Touch</div>
             <h2 class="heading-lg anim-2 editable-text">The Relationship Between Vision and Touch in The Enabling
                 Village</h2>
             <p class="case-study-project anim-3 editable-text">The Enabling Village | Singapore</p>
@@ -489,7 +536,7 @@
             <div id="progressFill"></div>
         </div>
         <button type="button" id="nextBtn" aria-label="Next slide">›</button>
-        <span id="slideCounter">1 / 3</span>
+        <span id="slideCounter">1 / 4</span>
     </div>
 
     <div class="case-study-lightbox" id="imageLightbox" hidden>
