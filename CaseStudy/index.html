@@ -60,16 +60,380 @@
             font-size: 20px;
         }
 
-        .case-study-page .case-study-cover {
-            padding-left: 248px;
+        .case-study-page .appendix-slide {
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+            overflow: hidden;
+            text-align: left;
         }
 
-        .case-study-page .case-study-cover .section-layout {
-            transform: translateY(-8px);
+        .case-study-page .appendix-light {
+            background: var(--cream);
+            color: var(--text-body);
         }
 
-        .case-study-page .case-study-cover .section-copy {
-            width: 680px;
+        .case-study-page .appendix-dark {
+            background: var(--sage-950);
+            color: rgba(255, 255, 255, .86);
+        }
+
+        .case-study-page .appendix-slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .case-study-page .appendix-light::before {
+            background:
+                radial-gradient(ellipse 680px 460px at 72% 18%, rgba(102, 120, 98, .09), transparent 72%),
+                radial-gradient(ellipse 520px 360px at 24% 76%, rgba(200, 170, 90, .06), transparent 70%);
+        }
+
+        .case-study-page .appendix-dark::before {
+            background:
+                radial-gradient(ellipse 720px 520px at 72% 10%, rgba(255, 255, 255, .05), transparent 72%),
+                radial-gradient(ellipse 600px 480px at 28% 76%, rgba(200, 170, 90, .08), transparent 72%);
+        }
+
+        .case-study-page .appendix-mobile-frame {
+            position: relative;
+            z-index: 1;
+            width: min(760px, 44vw);
+            min-height: min(1024px, 92vh);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .case-study-page .case-study-cover .appendix-mobile-frame {
+            padding: clamp(150px, 22vh, 250px) 84px 82px;
+        }
+
+        .case-study-page .appendix-intro .appendix-mobile-frame {
+            padding: 72px 78px 54px;
+        }
+
+        .case-study-page .appendix-learned .appendix-mobile-frame {
+            width: min(900px, 58vw);
+            padding: 128px 62px 66px;
+        }
+
+        .case-study-page .appendix-title {
+            margin: 0;
+            color: var(--sage-800);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 64px;
+            font-weight: 500;
+            line-height: 1.08;
+            letter-spacing: -.03em;
+            text-wrap: pretty;
+        }
+
+        .case-study-page .appendix-dark .appendix-title {
+            color: rgba(255, 255, 255, .92);
+        }
+
+        .case-study-page .appendix-line {
+            width: 52px;
+            height: 2px;
+            margin: 34px 0 30px;
+            background: var(--gold-400);
+            opacity: .86;
+        }
+
+        .case-study-page .appendix-lead {
+            margin: 0;
+            max-width: 540px;
+            color: var(--text-body);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.55;
+            text-wrap: pretty;
+        }
+
+        .case-study-page .appendix-body {
+            margin: 34px 0 0;
+            max-width: 560px;
+            color: rgba(36, 43, 34, .78);
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.72;
+            text-wrap: pretty;
+        }
+
+        .case-study-page .appendix-dark .appendix-lead {
+            color: rgba(222, 197, 129, .92);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        .case-study-page .appendix-dark .appendix-body {
+            color: rgba(255, 255, 255, .76);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .case-study-page .appendix-footer {
+            margin-top: auto;
+            color: var(--gold-400);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .34em;
+            text-transform: uppercase;
+        }
+
+        .case-study-page .appendix-dark .appendix-footer {
+            text-align: center;
+        }
+
+        .case-study-page .cover-route {
+            position: absolute;
+            right: -100px;
+            bottom: -62px;
+            width: 430px;
+            height: 640px;
+            color: rgba(200, 170, 90, .18);
+            pointer-events: none;
+        }
+
+        .case-study-page .appendix-kicker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 28px;
+            color: var(--gold-400);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+        }
+
+        .case-study-page .appendix-kicker::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--gold-400);
+        }
+
+        .case-study-page .appendix-intro .appendix-title {
+            font-size: 64px;
+            line-height: 1.02;
+        }
+
+        .case-study-page .appendix-intro .appendix-line {
+            margin: 26px 0 28px;
+        }
+
+        .case-study-page .appendix-intro .appendix-body {
+            margin-top: 24px;
+            max-width: 600px;
+            line-height: 1.52;
+        }
+
+        .case-study-page .case-study-list {
+            display: grid;
+            gap: 14px;
+            margin: 30px 0 28px;
+        }
+
+        .case-study-page .case-study-item {
+            display: grid;
+            grid-template-columns: 88px 124px minmax(0, 1fr);
+            align-items: center;
+            min-height: 132px;
+            border: 1px solid rgba(102, 120, 98, .16);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .34);
+            box-shadow: 0 10px 30px rgba(42, 54, 40, .04);
+            overflow: hidden;
+        }
+
+        .case-study-page .case-study-number {
+            color: var(--gold-400);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .case-study-page .case-study-symbol {
+            height: 76%;
+            display: grid;
+            place-items: center;
+            border-left: 1px solid rgba(102, 120, 98, .18);
+        }
+
+        .case-study-page .case-study-symbol svg {
+            width: 88px;
+            height: 88px;
+        }
+
+        .case-study-page .case-study-text {
+            padding: 18px 22px 18px 0;
+        }
+
+        .case-study-page .case-study-card-title {
+            margin: 0 0 4px;
+            color: var(--sage-800);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.05;
+        }
+
+        .case-study-page .case-study-card-source,
+        .case-study-page .case-study-card-note {
+            margin: 0;
+            color: rgba(36, 43, 34, .78);
+            font-size: 15px;
+            line-height: 1.35;
+        }
+
+        .case-study-page .case-study-card-source {
+            margin-bottom: 4px;
+            color: var(--sage-600);
+            font-weight: 400;
+        }
+
+        .case-study-page .appendix-closing {
+            margin: 0;
+            max-width: 640px;
+            color: rgba(36, 43, 34, .78);
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .case-study-page .closing-line {
+            width: 48px;
+            height: 1px;
+            margin: 0 0 20px;
+            background: var(--gold-400);
+        }
+
+        .case-study-page .learned-grid {
+            display: grid;
+            grid-template-columns: .88fr 1.12fr;
+            gap: 54px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .case-study-page .learned-copy {
+            min-width: 0;
+        }
+
+        .case-study-page .learned-copy .appendix-title {
+            font-size: 64px;
+            line-height: .98;
+        }
+
+        .case-study-page .learned-copy .appendix-line {
+            margin: 36px 0 30px;
+        }
+
+        .case-study-page .learned-principles {
+            display: grid;
+            gap: 18px;
+        }
+
+        .case-study-page .learned-principle {
+            display: grid;
+            grid-template-columns: 84px 1px minmax(0, 1fr);
+            align-items: center;
+            gap: 22px;
+            min-height: 132px;
+            padding: 20px 24px 20px 18px;
+            border: 1px solid rgba(222, 197, 129, .36);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .045);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .045);
+        }
+
+        .case-study-page .learned-icon {
+            width: 76px;
+            height: 76px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(222, 197, 129, .52);
+            border-radius: 999px;
+            color: var(--gold-400);
+        }
+
+        .case-study-page .learned-icon svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        .case-study-page .learned-rule {
+            width: 1px;
+            height: 76px;
+            background: rgba(222, 197, 129, .58);
+        }
+
+        .case-study-page .learned-title {
+            margin: 0 0 8px;
+            color: rgba(255, 255, 255, .9);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .case-study-page .learned-note {
+            margin: 0;
+            color: rgba(255, 255, 255, .74);
+            font-size: 15px;
+            line-height: 1.42;
+        }
+
+        .case-study-page .learned-bottom {
+            margin-top: 42px;
+            text-align: center;
+        }
+
+        .case-study-page .learned-divider {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            color: rgba(222, 197, 129, .65);
+        }
+
+        .case-study-page .learned-divider::before,
+        .case-study-page .learned-divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: currentColor;
+            opacity: .58;
+        }
+
+        .case-study-page .learned-divider span {
+            width: 7px;
+            height: 7px;
+            margin: 0 0;
+            border-radius: 999px;
+            background: var(--gold-400);
+        }
+
+        .case-study-page .learned-quote {
+            margin: 30px 0 20px;
+            color: rgba(222, 197, 129, .92);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 28px;
+            font-style: italic;
+            line-height: 1.2;
+        }
+
+        .case-study-page .learned-bottom .appendix-line {
+            margin: 0 auto 22px;
         }
 
         .case-study-lightbox[hidden] {
@@ -191,6 +555,135 @@
                 background: var(--cream);
             }
 
+            .case-study-page .appendix-slide {
+                justify-content: flex-start;
+                align-items: center;
+                padding: 0 0 104px;
+            }
+
+            .case-study-page .appendix-mobile-frame,
+            .case-study-page .appendix-learned .appendix-mobile-frame {
+                width: 100%;
+                height: auto;
+                min-height: calc(100svh - 104px);
+                padding: clamp(48px, 10vh, 112px) clamp(34px, 11vw, 88px) 48px;
+                overflow: visible;
+            }
+
+            .case-study-page .case-study-cover .appendix-mobile-frame {
+                padding-top: clamp(152px, 24vh, 260px);
+            }
+
+            .case-study-page .appendix-intro .appendix-mobile-frame {
+                padding-top: clamp(44px, 7vh, 76px);
+            }
+
+            .case-study-page .appendix-learned .appendix-mobile-frame {
+                padding-top: clamp(56px, 9vh, 112px);
+                padding-bottom: 42px;
+            }
+
+            .case-study-page .appendix-title {
+                font-size: clamp(54px, 8.4vw, 72px);
+                line-height: 1.06;
+            }
+
+            .case-study-page .case-study-cover .appendix-title {
+                font-size: clamp(48px, 7.6vw, 66px);
+            }
+
+            .case-study-page .appendix-intro .appendix-title {
+                font-size: clamp(56px, 8.8vw, 76px);
+            }
+
+            .case-study-page .learned-copy .appendix-title {
+                font-size: clamp(54px, 8.6vw, 76px);
+            }
+
+            .case-study-page .appendix-line {
+                margin: 26px 0 28px;
+            }
+
+            .case-study-page .appendix-lead {
+                font-size: clamp(18px, 2.7vw, 22px);
+            }
+
+            .case-study-page .appendix-body {
+                font-size: clamp(16px, 2.15vw, 18px);
+                line-height: 1.7;
+            }
+
+            .case-study-page .cover-route {
+                right: -152px;
+                bottom: -82px;
+                width: min(56vw, 430px);
+                height: min(72vh, 640px);
+            }
+
+            .case-study-page .case-study-list {
+                gap: 13px;
+                margin: 28px 0 28px;
+            }
+
+            .case-study-page .case-study-item {
+                grid-template-columns: clamp(70px, 13vw, 94px) clamp(96px, 17vw, 128px) minmax(0, 1fr);
+                min-height: clamp(118px, 15vh, 146px);
+            }
+
+            .case-study-page .case-study-number {
+                font-size: clamp(46px, 7vw, 62px);
+            }
+
+            .case-study-page .case-study-symbol svg {
+                width: clamp(72px, 13vw, 94px);
+                height: clamp(72px, 13vw, 94px);
+            }
+
+            .case-study-page .case-study-card-title {
+                font-size: clamp(25px, 4.2vw, 32px);
+            }
+
+            .case-study-page .learned-grid {
+                grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr);
+                gap: clamp(28px, 6vw, 58px);
+            }
+
+            .case-study-page .learned-principles {
+                gap: 17px;
+            }
+
+            .case-study-page .learned-principle {
+                grid-template-columns: 76px 1px minmax(0, 1fr);
+                min-height: 118px;
+                padding: 18px 18px 18px 16px;
+            }
+
+            .case-study-page .learned-icon {
+                width: 66px;
+                height: 66px;
+            }
+
+            .case-study-page .learned-icon svg {
+                width: 38px;
+                height: 38px;
+            }
+
+            .case-study-page .learned-rule {
+                height: 68px;
+            }
+
+            .case-study-page .learned-title {
+                font-size: clamp(23px, 3.7vw, 28px);
+            }
+
+            .case-study-page .learned-note {
+                font-size: clamp(14px, 2.1vw, 16px);
+            }
+
+            .case-study-page .learned-bottom {
+                margin-top: 34px;
+            }
+
             .case-study-page .section-slide {
                 justify-content: center;
                 align-items: flex-start;
@@ -234,30 +727,6 @@
                 max-width: 100%;
                 font-size: clamp(18px, 5vw, 22px);
                 line-height: 1.5;
-            }
-
-            .case-study-page .case-study-cover {
-                justify-content: center;
-                align-items: flex-start;
-                padding: 40px 24px 112px;
-            }
-
-            .case-study-page .case-study-cover .section-layout {
-                width: 100%;
-                max-width: 560px;
-                transform: none;
-            }
-
-            .case-study-page .case-study-cover .section-copy {
-                width: 100%;
-            }
-
-            .case-study-page .case-study-cover .heading-xl {
-                font-size: clamp(44px, 14vw, 64px);
-            }
-
-            .case-study-page .case-study-cover .section-subtitle {
-                font-size: clamp(16px, 4.6vw, 21px);
             }
 
             .case-study-page .finding-slide,
@@ -456,6 +925,104 @@
                 background: var(--gold-400);
             }
         }
+
+        @media (max-width: 560px) {
+
+            .case-study-page .appendix-mobile-frame,
+            .case-study-page .appendix-learned .appendix-mobile-frame {
+                padding-left: 28px;
+                padding-right: 28px;
+            }
+
+            .case-study-page .case-study-cover .appendix-mobile-frame {
+                padding-top: clamp(142px, 20vh, 190px);
+            }
+
+            .case-study-page .appendix-title,
+            .case-study-page .appendix-intro .appendix-title,
+            .case-study-page .learned-copy .appendix-title {
+                font-size: clamp(44px, 11.6vw, 56px);
+            }
+
+            .case-study-page .case-study-list {
+                gap: 12px;
+                margin: 24px 0;
+            }
+
+            .case-study-page .case-study-item {
+                grid-template-columns: 68px 82px minmax(0, 1fr);
+                min-height: 108px;
+            }
+
+            .case-study-page .case-study-number {
+                font-size: 43px;
+            }
+
+            .case-study-page .case-study-symbol svg {
+                width: 62px;
+                height: 62px;
+            }
+
+            .case-study-page .case-study-text {
+                padding: 14px 14px 14px 0;
+            }
+
+            .case-study-page .case-study-card-title {
+                font-size: 22px;
+            }
+
+            .case-study-page .case-study-card-source,
+            .case-study-page .case-study-card-note {
+                font-size: 13px;
+            }
+
+            .case-study-page .learned-grid {
+                display: block;
+            }
+
+            .case-study-page .learned-copy .appendix-line {
+                margin: 26px 0 24px;
+            }
+
+            .case-study-page .learned-principles {
+                margin-top: 28px;
+            }
+
+            .case-study-page .learned-principle {
+                grid-template-columns: 58px 1px minmax(0, 1fr);
+                gap: 14px;
+                min-height: 102px;
+                padding: 15px 14px 15px 12px;
+            }
+
+            .case-study-page .learned-icon {
+                width: 52px;
+                height: 52px;
+            }
+
+            .case-study-page .learned-icon svg {
+                width: 31px;
+                height: 31px;
+            }
+
+            .case-study-page .learned-rule {
+                height: 56px;
+            }
+
+            .case-study-page .learned-title {
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+
+            .case-study-page .learned-note {
+                font-size: 13px;
+                line-height: 1.34;
+            }
+
+            .case-study-page .learned-quote {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 
@@ -463,13 +1030,219 @@
     <nav class="section-nav" id="sectionNav" aria-label="Slide navigation"></nav>
 
     <main class="stage" id="stage">
-        <section class="slide slide-light active section-slide case-study-cover" data-title="Case Study">
-            <div class="section-layout">
-                <div class="section-copy">
-                    <h1 class="heading-xl anim-1 editable-text">Case Study</h1>
-                    <div class="section-line anim-2"></div>
-                    <p class="section-subtitle anim-3 editable-text">How visual and tactile cues support confident
-                        movement.</p>
+        <section class="slide slide-light active appendix-slide appendix-light case-study-cover"
+            data-title="Case Study / Digital Appendix">
+            <div class="appendix-mobile-frame">
+                <h1 class="appendix-title anim-1 editable-text">Case Study /<br>Digital Appendix</h1>
+                <div class="appendix-line anim-2"></div>
+                <p class="appendix-lead anim-3 editable-text">How visual and tactile cues support confident movement in
+                    public spaces.</p>
+                <p class="appendix-body anim-4 editable-text">This digital appendix extends the brochure through three
+                    selected case studies. Each case shows how public spaces can use visual, tactile, or combined
+                    sensory
+                    cues to support safer and more confident navigation.</p>
+                <div class="appendix-footer anim-5">See · Touch · Trust</div>
+                <svg class="cover-route" viewBox="0 0 430 640" aria-hidden="true" focusable="false">
+                    <path
+                        d="M342 0c-70 24-88 86-42 132 54 54 34 142-54 150l-120 1c-84 2-126 77-70 130 58 55 22 144-67 149-68 4-105 30-107 92"
+                        fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"
+                        stroke-linejoin="round" opacity=".22" />
+                    <path
+                        d="M342 0c-70 24-88 86-42 132 54 54 34 142-54 150l-120 1c-84 2-126 77-70 130 58 55 22 144-67 149-68 4-105 30-107 92"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-dasharray="8 12" opacity=".48" />
+                    <g fill="currentColor" opacity=".42">
+                        <circle cx="286" cy="176" r="4" />
+                        <circle cx="304" cy="176" r="4" />
+                        <circle cx="322" cy="176" r="4" />
+                        <circle cx="286" cy="194" r="4" />
+                        <circle cx="304" cy="194" r="4" />
+                        <circle cx="322" cy="194" r="4" />
+                        <circle cx="286" cy="212" r="4" />
+                        <circle cx="304" cy="212" r="4" />
+                        <circle cx="322" cy="212" r="4" />
+                        <circle cx="90" cy="432" r="4" />
+                        <circle cx="108" cy="432" r="4" />
+                        <circle cx="126" cy="432" r="4" />
+                        <circle cx="90" cy="450" r="4" />
+                        <circle cx="108" cy="450" r="4" />
+                        <circle cx="126" cy="450" r="4" />
+                        <circle cx="90" cy="468" r="4" />
+                        <circle cx="108" cy="468" r="4" />
+                        <circle cx="126" cy="468" r="4" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <section class="slide slide-light appendix-slide appendix-light appendix-intro"
+            data-title="Why These Case Studies?">
+            <div class="appendix-mobile-frame">
+                <div class="appendix-kicker anim-1">Introduction</div>
+                <h2 class="appendix-title anim-2 editable-text">Why These<br>Case Studies?</h2>
+                <div class="appendix-line anim-3"></div>
+                <p class="appendix-lead anim-4 editable-text">Three examples, three types of spatial guidance.</p>
+                <p class="appendix-body anim-5 editable-text">These cases were selected because they each show a
+                    different way of supporting visually impaired users in public spaces. Together, they help translate
+                    our research findings into clear design references.</p>
+                <div class="case-study-list anim-5">
+                    <article class="case-study-item">
+                        <div class="case-study-number">01</div>
+                        <div class="case-study-symbol">
+                            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+                                <circle cx="50" cy="50" r="46" fill="rgba(200, 170, 90, .12)" />
+                                <path d="M22 69c10-29 20-43 28-43s18 14 28 43" fill="none" stroke="#455c42"
+                                    stroke-width="2.4" stroke-linecap="round" />
+                                <path d="M34 72 50 34l16 38" fill="none" stroke="#455c42" stroke-width="2.2"
+                                    stroke-linecap="round" />
+                                <path d="M50 34v40" fill="none" stroke="#455c42" stroke-width="1.7"
+                                    stroke-linecap="round" />
+                                <path d="M42 74h16l-8-40z" fill="#455c42" opacity=".72" />
+                            </svg>
+                        </div>
+                        <div class="case-study-text">
+                            <h3 class="case-study-card-title editable-text">Visual Cues</h3>
+                            <p class="case-study-card-source editable-text">Elizabeth Line</p>
+                            <p class="case-study-card-note editable-text">Lighting and contrast make routes and
+                                decision points easier to read.</p>
+                        </div>
+                    </article>
+                    <article class="case-study-item">
+                        <div class="case-study-number">02</div>
+                        <div class="case-study-symbol">
+                            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+                                <circle cx="50" cy="50" r="46" fill="rgba(200, 170, 90, .12)" />
+                                <path d="M28 26h44M28 34h44M28 42h35M28 50h28M28 58h22" fill="none" stroke="#455c42"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <path
+                                    d="M39 67V47c0-4 6-4 6 0v14-21c0-4 6-4 6 0v21-17c0-4 6-4 6 0v18-13c0-4 6-4 6 0v20c0 10-6 17-16 17h-3c-9 0-15-6-18-15l-3-11c-1-4 4-6 6-2l5 9z"
+                                    fill="#f1eadb" stroke="#455c42" stroke-width="2" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="case-study-text">
+                            <h3 class="case-study-card-title editable-text">Tactile Cues</h3>
+                            <p class="case-study-card-source editable-text">Hazelwood School</p>
+                            <p class="case-study-card-note editable-text">Continuous tactile walls help users confirm
+                                direction and location.</p>
+                        </div>
+                    </article>
+                    <article class="case-study-item">
+                        <div class="case-study-number">03</div>
+                        <div class="case-study-symbol">
+                            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+                                <circle cx="50" cy="50" r="46" fill="rgba(200, 170, 90, .12)" />
+                                <path d="M20 25v46M80 25v46M32 34v30M68 34v30M20 25l30 15 30-15M20 71l30-13 30 13"
+                                    fill="none" stroke="#455c42" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M50 42 34 78h32z" fill="#455c42" opacity=".76" />
+                            </svg>
+                        </div>
+                        <div class="case-study-text">
+                            <h3 class="case-study-card-title editable-text">Vision + Touch</h3>
+                            <p class="case-study-card-source editable-text">The Enabling Village</p>
+                            <p class="case-study-card-note editable-text">Color contrast and tactile surfaces work
+                                together to guide movement.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="closing-line anim-5"></div>
+                <p class="appendix-closing anim-5 editable-text">The cases are not presented as perfect solutions, but
+                    as references for understanding inclusive wayfinding.</p>
+            </div>
+        </section>
+
+        <section class="slide slide-dark appendix-slide appendix-dark appendix-learned" data-title="What We Learned">
+            <div class="appendix-mobile-frame">
+                <div class="learned-grid">
+                    <div class="learned-copy">
+                        <h2 class="appendix-title anim-1 editable-text">What We<br>Learned</h2>
+                        <div class="appendix-line anim-2"></div>
+                        <p class="appendix-lead anim-3 editable-text">Inclusive routes are built through connected cues.
+                        </p>
+                        <p class="appendix-body anim-4 editable-text">Across the three cases, inclusive design is not
+                            about adding isolated accessible features. It is about creating continuous cue systems that
+                            help people read space, confirm direction, and move with confidence.</p>
+                    </div>
+                    <div class="learned-principles anim-5">
+                        <article class="learned-principle">
+                            <div class="learned-icon">
+                                <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                                    <path d="M14 12h16l4 4-4 4H14zM34 28H18l-4 4 4 4h16zM24 8v32" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M18 20h12M18 28h12" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <div class="learned-rule"></div>
+                            <div>
+                                <h3 class="learned-title editable-text">Clarity</h3>
+                                <p class="learned-note editable-text">Make routes and decision points easy to
+                                    understand.</p>
+                            </div>
+                        </article>
+                        <article class="learned-principle">
+                            <div class="learned-icon">
+                                <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                                    <g fill="currentColor">
+                                        <circle cx="16" cy="16" r="2" />
+                                        <circle cx="24" cy="16" r="2" />
+                                        <circle cx="32" cy="16" r="2" />
+                                        <circle cx="16" cy="24" r="2" />
+                                        <circle cx="24" cy="24" r="2" />
+                                        <circle cx="32" cy="24" r="2" />
+                                        <circle cx="16" cy="32" r="2" />
+                                        <circle cx="24" cy="32" r="2" />
+                                        <circle cx="32" cy="32" r="2" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="learned-rule"></div>
+                            <div>
+                                <h3 class="learned-title editable-text">Continuity</h3>
+                                <p class="learned-note editable-text">Keep visual and tactile cues connected along the
+                                    route.</p>
+                            </div>
+                        </article>
+                        <article class="learned-principle">
+                            <div class="learned-icon">
+                                <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                                    <circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="2" />
+                                    <path d="m16 24 6 6 12-14" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="learned-rule"></div>
+                            <div>
+                                <h3 class="learned-title editable-text">Confirmation</h3>
+                                <p class="learned-note editable-text">Let users verify direction through touch,
+                                    contrast,
+                                    sound, or landmarks.</p>
+                            </div>
+                        </article>
+                        <article class="learned-principle">
+                            <div class="learned-icon">
+                                <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                                    <path d="M24 7 38 13v11c0 9-5 15-14 18-9-3-14-9-14-18V13z" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                                    <path d="m17 24 5 5 10-12" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="learned-rule"></div>
+                            <div>
+                                <h3 class="learned-title editable-text">Protection</h3>
+                                <p class="learned-note editable-text">Keep accessible routes safe, clear, and
+                                    predictable.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="learned-bottom anim-5">
+                    <div class="learned-divider"><span></span></div>
+                    <p class="learned-quote editable-text">Design the route, not just the object.</p>
+                    <div class="appendix-line"></div>
+                    <div class="appendix-footer">See · Touch · Trust</div>
                 </div>
             </div>
         </section>
@@ -536,7 +1309,7 @@
             <div id="progressFill"></div>
         </div>
         <button type="button" id="nextBtn" aria-label="Next slide">›</button>
-        <span id="slideCounter">1 / 4</span>
+        <span id="slideCounter">1 / 6</span>
     </div>
 
     <div class="case-study-lightbox" id="imageLightbox" hidden>
