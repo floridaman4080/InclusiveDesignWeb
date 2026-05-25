@@ -901,14 +901,17 @@
                 align-items: center;
                 justify-items: center;
                 opacity: 0;
+                visibility: hidden;
                 pointer-events: none;
-                transition: opacity .28s var(--ease), transform .32s var(--ease);
+                transition: opacity .28s var(--ease), transform .32s var(--ease), visibility 0s .28s;
             }
 
             .case-study-page.controls-revealed .controls {
                 opacity: 1;
+                visibility: visible;
                 pointer-events: auto;
                 transform: translate(-50%, 0);
+                transition: opacity .28s var(--ease), transform .32s var(--ease), visibility 0s 0s;
             }
 
             .case-study-page .controls button {
@@ -923,6 +926,12 @@
                 background: rgba(0, 0, 0, .42);
                 font-size: 34px;
                 line-height: 1;
+                color: #fff;
+            }
+
+            .case-study-page.on-light-slide .controls button {
+                background: rgba(0, 0, 0, .08);
+                color: var(--sage-800);
             }
 
             .case-study-page .progress-bar {
@@ -938,6 +947,14 @@
                 color: rgba(255, 255, 255, .76);
                 font-size: 12px;
                 text-align: center;
+            }
+
+            .case-study-page.on-light-slide #slideCounter {
+                color: rgba(36, 43, 34, .62);
+            }
+
+            .case-study-page.on-light-slide .progress-bar {
+                background: rgba(0, 0, 0, .1);
             }
 
             .case-study-page .section-nav {
@@ -1192,6 +1209,61 @@
             </div>
         </section>
 
+        <section class="slide slide-dark finding-slide" data-title="Visual Cues">
+            <div class="finding-copy">
+                <div class="anim-1 section-badge gold"><span class="dot"></span>Visual Cues</div>
+                <h2 class="heading-lg anim-2 editable-text">Visual guidance on the Elizabeth Line:</h2>
+                <p class="case-study-project anim-3 editable-text">The Elizabeth Line | London, United Kingdom</p>
+                <p class="body-md muted-light anim-4 editable-text">The Elizabeth Line offers a useful visual case. Its
+                    station lighting uses cooler light in movement areas and warmer light in places where passengers
+                    pause
+                    and choose a route. This difference helps make space more readable without adding too many signs.
+                </p>
+            </div>
+            <div class="finding-images anim-scale">
+                <figure class="img-frame"><img src="../sources/ppt-content_files/slide_17_image_20.jpg"
+                        alt="Elizabeth Line lighting cue"></figure>
+                <figure class="img-frame"><img src="../sources/ppt-content_files/slide_17_image_21.jpg"
+                        alt="Elizabeth Line wayfinding light"></figure>
+            </div>
+        </section>
+
+        <section class="slide slide-light finding-slide reverse" data-title="Tactile Cues">
+            <div class="finding-images anim-scale">
+                <figure class="img-frame"><img src="../sources/ppt-content_files/slide_18_image_22.png"
+                        alt="Hazelwood School tactile wall"></figure>
+                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_18_image_23.png"
+                        alt="Hazelwood School route diagram"></figure>
+            </div>
+            <div class="finding-copy">
+                <div class="anim-1 section-badge sage"><span class="dot"></span>Tactile Cues</div>
+                <h2 class="heading-lg anim-2 editable-text">Hazelwood School’s tactile wall</h2>
+                <p class="case-study-project anim-3 editable-text">Hazelwood School | Glasgow, United Kingdom</p>
+                <p class="body-md anim-4 editable-text">Hazelwood School was designed for children and young people with
+                    dual sensory impairments. Its cork-clad sensory wall and trail rail provide steady touch feedback
+                    along the route, helping students confirm their location and move with more freedom</p>
+            </div>
+        </section>
+
+        <section class="slide slide-dark relation-slide" data-title="Vision and Touch" data-relation-version="2">
+            <div class="anim-1 section-badge gold"><span class="dot"></span>Vision and Touch</div>
+            <h2 class="heading-lg anim-2 editable-text">The Relationship Between Vision and Touch in The Enabling
+                Village</h2>
+            <p class="case-study-project anim-3 editable-text">The Enabling Village | Singapore</p>
+            <p class="body-md muted-light relation-text anim-4 editable-text">For low-vision visitors, high-contrast
+                block
+                colors differentiate building zones and walking paths. This visual clarity is simultaneously reinforced
+                by
+                varying tactile intensities: the darker, central areas of the path provide stronger tactile feedback,
+                while the lighter, peripheral areas offer weaker tactile sensations.</p>
+            <div class="relation-images anim-5">
+                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_19_image_24.png"
+                        alt="Enabling Village integrated visual path"></figure>
+                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_19_image_25.png"
+                        alt="Synchronized tactile floor indicators"></figure>
+            </div>
+        </section>
+
         <section class="slide slide-dark appendix-slide appendix-dark appendix-learned" data-title="What We Learned">
             <div class="appendix-mobile-frame">
                 <div class="learned-grid">
@@ -1287,61 +1359,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="slide slide-dark finding-slide" data-title="Visual Cues">
-            <div class="finding-copy">
-                <div class="anim-1 section-badge gold"><span class="dot"></span>Visual Cues</div>
-                <h2 class="heading-lg anim-2 editable-text">Visual guidance on the Elizabeth Line:</h2>
-                <p class="case-study-project anim-3 editable-text">The Elizabeth Line | London, United Kingdom</p>
-                <p class="body-md muted-light anim-4 editable-text">The Elizabeth Line offers a useful visual case. Its
-                    station lighting uses cooler light in movement areas and warmer light in places where passengers
-                    pause
-                    and choose a route. This difference helps make space more readable without adding too many signs.
-                </p>
-            </div>
-            <div class="finding-images anim-scale">
-                <figure class="img-frame"><img src="../sources/ppt-content_files/slide_17_image_20.jpg"
-                        alt="Elizabeth Line lighting cue"></figure>
-                <figure class="img-frame"><img src="../sources/ppt-content_files/slide_17_image_21.jpg"
-                        alt="Elizabeth Line wayfinding light"></figure>
-            </div>
-        </section>
-
-        <section class="slide slide-light finding-slide reverse" data-title="Tactile Cues">
-            <div class="finding-images anim-scale">
-                <figure class="img-frame"><img src="../sources/ppt-content_files/slide_18_image_22.png"
-                        alt="Hazelwood School tactile wall"></figure>
-                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_18_image_23.png"
-                        alt="Hazelwood School route diagram"></figure>
-            </div>
-            <div class="finding-copy">
-                <div class="anim-1 section-badge sage"><span class="dot"></span>Tactile Cues</div>
-                <h2 class="heading-lg anim-2 editable-text">Hazelwood School’s tactile wall</h2>
-                <p class="case-study-project anim-3 editable-text">Hazelwood School | Glasgow, United Kingdom</p>
-                <p class="body-md anim-4 editable-text">Hazelwood School was designed for children and young people with
-                    dual sensory impairments. Its cork-clad sensory wall and trail rail provide steady touch feedback
-                    along the route, helping students confirm their location and move with more freedom</p>
-            </div>
-        </section>
-
-        <section class="slide slide-dark relation-slide" data-title="Vision and Touch" data-relation-version="2">
-            <div class="anim-1 section-badge gold"><span class="dot"></span>Vision and Touch</div>
-            <h2 class="heading-lg anim-2 editable-text">The Relationship Between Vision and Touch in The Enabling
-                Village</h2>
-            <p class="case-study-project anim-3 editable-text">The Enabling Village | Singapore</p>
-            <p class="body-md muted-light relation-text anim-4 editable-text">For low-vision visitors, high-contrast
-                block
-                colors differentiate building zones and walking paths. This visual clarity is simultaneously reinforced
-                by
-                varying tactile intensities: the darker, central areas of the path provide stronger tactile feedback,
-                while the lighter, peripheral areas offer weaker tactile sensations.</p>
-            <div class="relation-images anim-5">
-                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_19_image_24.png"
-                        alt="Enabling Village integrated visual path"></figure>
-                <figure class="img-frame contain"><img src="../sources/ppt-content_files/slide_19_image_25.png"
-                        alt="Synchronized tactile floor indicators"></figure>
-            </div>
-        </section>
     </main>
 
     <div class="controls" aria-label="Slide controls">
@@ -1389,7 +1406,9 @@
             }
 
             function setBodyBackground() {
-                document.body.style.background = slides[current].classList.contains('slide-dark') ? 'var(--sage-950)' : 'var(--cream)';
+                const isDark = slides[current].classList.contains('slide-dark');
+                document.body.style.background = isDark ? 'var(--sage-950)' : 'var(--cream)';
+                document.body.classList.toggle('on-light-slide', !isDark);
             }
 
             function showSlide(index) {
