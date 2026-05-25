@@ -513,34 +513,37 @@
 
             html,
             body.case-study-page {
-                height: 100%;
-                overflow: hidden;
+                height: auto;
+                min-height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
 
             body.case-study-page {
                 display: block;
                 background: var(--cream);
+                -webkit-overflow-scrolling: touch;
             }
 
             .case-study-page .stage {
-                position: fixed;
-                inset: 0;
-                width: 100vw !important;
-                height: 100vh !important;
-                height: 100dvh !important;
+                position: relative;
+                inset: auto;
+                width: 100% !important;
+                height: auto !important;
                 min-height: 100svh;
                 transform: none !important;
                 transform-origin: center center;
-                overflow: hidden;
+                overflow: visible;
             }
 
             .case-study-page .slide {
-                inset: 0;
+                position: relative;
+                inset: auto;
                 width: 100%;
-                min-height: 100%;
+                height: auto;
+                min-height: 100svh;
                 overflow-x: hidden;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
+                overflow-y: visible;
             }
 
             .case-study-page .slide.active {
@@ -557,131 +560,149 @@
 
             .case-study-page .appendix-slide {
                 justify-content: flex-start;
-                align-items: center;
-                padding: 0 0 104px;
+                align-items: stretch;
+                padding: 0;
+                overflow: visible;
+            }
+
+            .case-study-page .appendix-slide.active {
+                display: block;
             }
 
             .case-study-page .appendix-mobile-frame,
             .case-study-page .appendix-learned .appendix-mobile-frame {
                 width: 100%;
+                max-width: none;
                 height: auto;
-                min-height: calc(100svh - 104px);
-                padding: clamp(48px, 10vh, 112px) clamp(34px, 11vw, 88px) 48px;
+                min-height: 100svh;
+                padding: clamp(52px, 7vh, 74px) clamp(20px, 4vw, 34px) 96px;
                 overflow: visible;
             }
 
             .case-study-page .case-study-cover .appendix-mobile-frame {
-                padding-top: clamp(152px, 24vh, 260px);
+                padding-top: clamp(82px, 13vh, 128px);
             }
 
             .case-study-page .appendix-intro .appendix-mobile-frame {
-                padding-top: clamp(44px, 7vh, 76px);
+                padding-top: clamp(42px, 6vh, 64px);
             }
 
             .case-study-page .appendix-learned .appendix-mobile-frame {
-                padding-top: clamp(56px, 9vh, 112px);
-                padding-bottom: 42px;
+                padding-top: clamp(42px, 7vh, 68px);
+                padding-bottom: 96px;
             }
 
             .case-study-page .appendix-title {
-                font-size: clamp(54px, 8.4vw, 72px);
+                font-size: clamp(42px, 10vw, 62px);
                 line-height: 1.06;
             }
 
             .case-study-page .case-study-cover .appendix-title {
-                font-size: clamp(48px, 7.6vw, 66px);
+                font-size: clamp(40px, 9.5vw, 58px);
             }
 
             .case-study-page .appendix-intro .appendix-title {
-                font-size: clamp(56px, 8.8vw, 76px);
+                font-size: clamp(44px, 10.5vw, 64px);
             }
 
             .case-study-page .learned-copy .appendix-title {
-                font-size: clamp(54px, 8.6vw, 76px);
+                font-size: clamp(42px, 10vw, 60px);
             }
 
             .case-study-page .appendix-line {
-                margin: 26px 0 28px;
+                margin: 22px 0 20px;
             }
 
             .case-study-page .appendix-lead {
-                font-size: clamp(18px, 2.7vw, 22px);
+                font-size: clamp(17px, 3.2vw, 21px);
             }
 
             .case-study-page .appendix-body {
-                font-size: clamp(16px, 2.15vw, 18px);
-                line-height: 1.7;
+                margin-top: 24px;
+                font-size: clamp(15px, 2.8vw, 17px);
+                line-height: 1.58;
             }
 
             .case-study-page .cover-route {
-                right: -152px;
-                bottom: -82px;
-                width: min(56vw, 430px);
-                height: min(72vh, 640px);
+                right: -96px;
+                bottom: -70px;
+                width: min(64vw, 340px);
+                height: auto;
+                max-height: 56vh;
             }
 
             .case-study-page .case-study-list {
-                gap: 13px;
-                margin: 28px 0 28px;
+                gap: 11px;
+                margin: 24px 0 22px;
             }
 
             .case-study-page .case-study-item {
-                grid-template-columns: clamp(70px, 13vw, 94px) clamp(96px, 17vw, 128px) minmax(0, 1fr);
-                min-height: clamp(118px, 15vh, 146px);
+                grid-template-columns: clamp(54px, 10vw, 72px) clamp(60px, 11vw, 84px) minmax(0, 1fr);
+                min-height: auto;
             }
 
             .case-study-page .case-study-number {
-                font-size: clamp(46px, 7vw, 62px);
+                font-size: clamp(36px, 7vw, 50px);
             }
 
             .case-study-page .case-study-symbol svg {
-                width: clamp(72px, 13vw, 94px);
-                height: clamp(72px, 13vw, 94px);
+                width: clamp(50px, 10vw, 72px);
+                height: clamp(50px, 10vw, 72px);
+            }
+
+            .case-study-page .case-study-text {
+                padding: 14px 14px 14px 0;
             }
 
             .case-study-page .case-study-card-title {
-                font-size: clamp(25px, 4.2vw, 32px);
+                font-size: clamp(21px, 4vw, 28px);
+            }
+
+            .case-study-page .case-study-card-source,
+            .case-study-page .case-study-card-note {
+                font-size: clamp(13px, 2.6vw, 15px);
             }
 
             .case-study-page .learned-grid {
-                grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr);
-                gap: clamp(28px, 6vw, 58px);
+                display: block;
             }
 
             .case-study-page .learned-principles {
-                gap: 17px;
+                gap: 14px;
+                margin-top: 28px;
             }
 
             .case-study-page .learned-principle {
-                grid-template-columns: 76px 1px minmax(0, 1fr);
-                min-height: 118px;
-                padding: 18px 18px 18px 16px;
+                grid-template-columns: clamp(54px, 10vw, 68px) 1px minmax(0, 1fr);
+                gap: 16px;
+                min-height: auto;
+                padding: 15px 14px 15px 12px;
             }
 
             .case-study-page .learned-icon {
-                width: 66px;
-                height: 66px;
+                width: clamp(50px, 9vw, 62px);
+                height: clamp(50px, 9vw, 62px);
             }
 
             .case-study-page .learned-icon svg {
-                width: 38px;
-                height: 38px;
+                width: clamp(30px, 5.8vw, 36px);
+                height: clamp(30px, 5.8vw, 36px);
             }
 
             .case-study-page .learned-rule {
-                height: 68px;
+                height: 54px;
             }
 
             .case-study-page .learned-title {
-                font-size: clamp(23px, 3.7vw, 28px);
+                font-size: clamp(21px, 3.8vw, 26px);
             }
 
             .case-study-page .learned-note {
-                font-size: clamp(14px, 2.1vw, 16px);
+                font-size: clamp(13px, 2.5vw, 15px);
             }
 
             .case-study-page .learned-bottom {
-                margin-top: 34px;
+                margin-top: 28px;
             }
 
             .case-study-page .section-slide {
@@ -930,18 +951,18 @@
 
             .case-study-page .appendix-mobile-frame,
             .case-study-page .appendix-learned .appendix-mobile-frame {
-                padding-left: 28px;
-                padding-right: 28px;
+                padding-left: 18px;
+                padding-right: 18px;
             }
 
             .case-study-page .case-study-cover .appendix-mobile-frame {
-                padding-top: clamp(142px, 20vh, 190px);
+                padding-top: clamp(72px, 11vh, 108px);
             }
 
             .case-study-page .appendix-title,
             .case-study-page .appendix-intro .appendix-title,
             .case-study-page .learned-copy .appendix-title {
-                font-size: clamp(44px, 11.6vw, 56px);
+                font-size: clamp(40px, 10.8vw, 54px);
             }
 
             .case-study-page .case-study-list {
@@ -950,25 +971,25 @@
             }
 
             .case-study-page .case-study-item {
-                grid-template-columns: 68px 82px minmax(0, 1fr);
+                grid-template-columns: 52px 62px minmax(0, 1fr);
                 min-height: 108px;
             }
 
             .case-study-page .case-study-number {
-                font-size: 43px;
+                font-size: 34px;
             }
 
             .case-study-page .case-study-symbol svg {
-                width: 62px;
-                height: 62px;
+                width: 50px;
+                height: 50px;
             }
 
             .case-study-page .case-study-text {
-                padding: 14px 14px 14px 0;
+                padding: 13px 10px 13px 0;
             }
 
             .case-study-page .case-study-card-title {
-                font-size: 22px;
+                font-size: 21px;
             }
 
             .case-study-page .case-study-card-source,
